@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="LoginPSN.Views.RegisterPage"
+             BackgroundColor="Blue"
+             NavigationPage.HasNavigationBar="False">
+
+    <!--<ContentPage.BindingContext>
+        <ViewModels:RegisterPageViewModel/>
+    </ContentPage.BindingContext>-->
+    <ScrollView>
+        <StackLayout Padding="20,100,20,0">
+
+            <!--PSN Image-->
+            <!--<Image Source="PSN.jpg" />
+                <Label Text="Acess PlayStation Network"
+                TextColor="White"
+                FontSize="Medium"
+                HorizontalOptions="FillAndExpand"
+                />-->
+            <!--App Name title-->
+            <Label Text="PlayStation Network App"
+               x:Name="myAppTittle"
+               TextColor="White"
+               FontSize="Large"
+               HorizontalOptions="Center"/>
+
+            <!--Get email-->
+            <Entry Text="{Binding User.Name}"
+                       Placeholder="Name"/>
+            
+            <Entry Text="{Binding User.Email}"
+                   Keyboard="Email"
+                       Placeholder="Email"/>
+            <!--Get Passowrd-->
+            <Entry Text="{Binding User.Password}"
+                   IsPassword="True"
+                       Placeholder="Password"/>
+            <Entry Text="{Binding User.Password}"
+                   IsPassword="True"
+                       Placeholder="Confirm password"/>
+            <Button Text="Register"
+                        Command="{Binding RegisterCommand}"/>
+            <Label Text="{Binding Result, Mode=TwoWay}"
+                       TextColor="White"/>
+
+            <!--Forgot password hyperlink-->
+            <!--<Label Text ="Forgot password?"
+            TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoSony"/>
+                    </Label.GestureRecognizers>
+            </Label>-->
+        </StackLayout>
+    </ScrollView>
+
+
+
+</ContentPage>

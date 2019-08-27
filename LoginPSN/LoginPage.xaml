@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="IntecWeek1.Views.LoginPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="Red">
+
+                <Entry Text="{Binding User.Name}"/>
+
+                <Entry Text="{Binding User.Password}"/>
+                <Button Text="Login"
+                        BackgroundColor="Blue"
+                        Command="{Binding LoginCommand}"/>
+
+                <Label Text="{Binding Result, Mode=TwoWay}"
+                       TextColor="White"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
