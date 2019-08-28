@@ -8,9 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace LoginPSN.Helpers
 {
-    class Validation
+    public class Validation
     {
-        private void validateEmail(string e)
+        public bool ValidateEmail(string e)
         {
             var eamilPattern =
                  @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
@@ -22,7 +22,11 @@ namespace LoginPSN.Helpers
 
             if (Regex.IsMatch(e, eamilPattern))
             {
+                return true;
             }
+
+            // correo invalido
+            return false;
 
 
         }

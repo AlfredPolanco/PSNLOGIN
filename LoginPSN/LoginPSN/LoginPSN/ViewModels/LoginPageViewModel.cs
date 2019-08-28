@@ -13,6 +13,7 @@ namespace LoginPSN.ViewModels
 {
     public class LoginPageViewModel : INotifyPropertyChanged
     {
+        Validation validate = new Validation();
         public string DisplayError { get; set; }
         public User User { get; set; } = new User();
         public ICommand LoginCommand { get; set; }
@@ -27,19 +28,23 @@ namespace LoginPSN.ViewModels
                 //Valida que el email y password no esten vacios
                 if (string.IsNullOrEmpty(User.Email) || string.IsNullOrEmpty(User.Password))
                 {
+                    //var z = 10;
                     //Result = Application.Current.Properties["Resul"].ToString();
-                    //await Application.Current.MainPage.DisplayAlert("Alert", "Please enter email address and password", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Please enter email address and password", "Ok");
                 }
                 //Valida que el email introducido es valido
-                //else if ()
-                //{
+                else if (validate.ValidateEmail(x))
+                {
+                    await App.Current.MainPage.Navigation.PushAsync(new HomePage());
 
-                //}
+                }
 
                 //Usuario es bienvido al presionar el boton de LogIn 
                 else
                 {
-                    await App.Current.MainPage.Navigation.PushAsync(new HomePage());
+                    //Mensaje de invalid credenctials
+                    //var k = 12;
+                    
                 }
             });
 

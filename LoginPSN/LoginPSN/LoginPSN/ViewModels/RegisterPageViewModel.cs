@@ -13,6 +13,7 @@ namespace LoginPSN.ViewModels
 {
     public class RegisterPageViewModel : INotifyPropertyChanged
     {
+        Validation validate = new Validation();
         public string DisplayError { get; set; }
         public User User { get; set; } = new User();
         public ICommand RegisterCommand { get; set; }
@@ -30,11 +31,11 @@ namespace LoginPSN.ViewModels
                     //await Application.Current.MainPage.DisplayAlert("Alert", "Please enter email address and password", "Ok");
                 }
                 //Valida que el email introducido es valido
-                //else if ()
-                //{
+                else if (validate.ValidateEmail(x))
+                {
+                    await App.Current.MainPage.Navigation.PushAsync(new HomePage());
 
-                //}
-
+                }
                 //Usuario es bienvido al presionar el boton de LogIn 
                 else
                 {
