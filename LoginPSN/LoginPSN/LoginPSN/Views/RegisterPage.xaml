@@ -12,9 +12,8 @@
         <ViewModels:RegisterPageViewModel/>
     </ContentPage.BindingContext>-->
     <ScrollView>
-        <StackLayout HorizontalOptions="Center"
-                     VerticalOptions="Center">
-             
+        <StackLayout>
+
             <Image Source="PSN.jpg" />
             <!--App Name title-->
             <Label Text="PlayStation Network App"/>
@@ -33,15 +32,12 @@
             <Entry Text="{Binding User.Password}"
                    IsPassword="True"
                        Placeholder="Confirm password"/>
+            <Label Text="{Binding DisplayError, Mode=TwoWay}"
+                       HorizontalOptions="CenterAndExpand"
+                       TextColor="Red"/>
             <!--Boton de registrar-->
             <Button Text="Register"
                         Command="{Binding RegisterCommand}"/>
-            <!--Mensajes de error-->
-            <Label Text="{Binding DisplayError, Mode=TwoWay}"
-                   TextColor="Red"/>
         </StackLayout>
     </ScrollView>
-
-
-
 </ContentPage>

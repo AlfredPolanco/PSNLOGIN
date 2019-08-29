@@ -32,8 +32,8 @@
                 <Button Text="Login"
                         Command="{Binding LoginCommand}"/>
                 <!--Mostrar mensaje-->
-                <Label Text="{Binding Result, Mode=TwoWay}"
-                       HorizontalOptions="FillAndExpand"
+                <Label Text="{Binding DisplayError, Mode=TwoWay}"
+                       HorizontalOptions="CenterAndExpand"
                        TextColor="Red"/>
                 
                 <!--Boton de Register-->

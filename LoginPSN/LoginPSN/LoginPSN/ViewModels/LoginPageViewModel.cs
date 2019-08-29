@@ -13,16 +13,8 @@ namespace LoginPSN.ViewModels
 {
     public class LoginPageViewModel : INotifyPropertyChanged
     {
-
-        //private string displayError;
-
-        //public string DisplayError
-        //{
-        //    get { return string.Format("HOLA", User.Name); }
-        //}
-
-        //Helper para validar correo electronico
-        Validation validate = new Validation();
+        //String para mostrar errores
+        public string DisplayError { get; set; }
         public User User { get; set; } = new User();
         public ICommand LoginCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
@@ -36,29 +28,27 @@ namespace LoginPSN.ViewModels
                 //Valida que el email y password no esten vacios
                 if (string.IsNullOrEmpty(User.Email) || string.IsNullOrEmpty(User.Password))
                 {
-                    //Result = Application.Current.Properties["Resul"].ToString();
-                    //await Application.Current.MainPage.DisplayAlert("Alert", "Please enter email address and password", "Ok");
+                    DisplayError = "Please enter email address and password";
                 }
-                //Valida que el email introducido es valido
-                else if (validate.ValidateEmail(x))
+                //Valida que el email introducido es valido y si es valido nos lleva a HommePage
+                else if (StringValidationHelper.ValidateEmail(x))
                 {
+
                     await App.Current.MainPage.Navigation.PushAsync(new HomePage());
-
                 }
-
-                //Usuario es bienvido al presionar el boton de LogIn 
                 else
                 {
                     //Mensaje de invalid credenctials
+                    DisplayError = "Please enter valid email address and password";
                 }
             });
-
+            //Al ser presionado te lleva a la pagina de register
             RegisterCommand = new Command(async () =>
             {
                 await App.Current.MainPage.Navigation.PushAsync(new RegisterPage());
 
             });
-
+            //Al ser presionado te lleva hacia el navegador para un password reset
             GoSony = new Command(() =>
             {
 
@@ -66,17 +56,6 @@ namespace LoginPSN.ViewModels
 
             });
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
-        //private void RaisePropertyChanged(string propertyName)
-        //{
-        //    var handle = PropertyChanged;
-        //    if (handle != null)
-        //        handle(this, new PropertyChangedEventArgs(propertyName));
-        //}
-        //protected void OnPropertyChanged(string DisplayError)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(DisplayError));
-        //}
     }
 }

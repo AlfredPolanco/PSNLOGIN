@@ -8,9 +8,9 @@ using System.Text.RegularExpressions;
 
 namespace LoginPSN.Helpers
 {
-    public class Validation
+    public static class StringValidationHelper
     {
-        public bool ValidateEmail(string e)
+        public static bool ValidateEmail(string e)
         {
             //Patron del email
             var eamilPattern =
@@ -25,11 +25,8 @@ namespace LoginPSN.Helpers
             {
                 return true;
             }
-
             //Sino retorna falso
             return false;
-
-
         }
 
     }

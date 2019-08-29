@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LoginPSN.Models
 {
-    //Clase User con Name, Email and password
+    //Clase User con Name, Email,
     public class User
     {
         public string Name { get; set;}
