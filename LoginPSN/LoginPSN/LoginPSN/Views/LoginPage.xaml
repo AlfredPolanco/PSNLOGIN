@@ -13,21 +13,12 @@
 		<ViewModels:LoginPageViewModel/>
 	</ContentPage.BindingContext>
         <ScrollView>
-            <StackLayout Padding="20,100,20,0">
+            <StackLayout>
 
                 <!--PSN Image-->
-                <!--<Image Source="PSN.jpg" />
-                <Label Text="Acess PlayStation Network"
-                TextColor="White"
-                FontSize="Medium"
-                HorizontalOptions="FillAndExpand"
-                />-->
+                <Image Source="PSN.jpg" />
                 <!--App Name title-->
-                <Label Text="PlayStation Network App"
-               x:Name="myAppTittle"
-               TextColor="White"
-               FontSize="Large"
-               HorizontalOptions="Center"/>
+                <Label Text="PlayStation Network App"/>
 
                 <!--Get email-->
                 <Entry Text="{Binding User.Email}"
@@ -37,20 +28,20 @@
                 <Entry Text="{Binding User.Password}"
                        IsPassword="True"
                        Placeholder="Password"/>
+                <!--Boton de LogIn-->
                 <Button Text="Login"
                         Command="{Binding LoginCommand}"/>
+                <!--Mostrar mensaje-->
                 <Label Text="{Binding Result, Mode=TwoWay}"
-                       TextColor="White"/>
-
+                       HorizontalOptions="FillAndExpand"
+                       TextColor="Red"/>
+                
+                <!--Boton de Register-->
                 <Button Text="Register"
                             Command="{Binding RegisterCommand}"/>
-
-                <Label Text="{Binding Result, Mode=TwoWay}"
-                           TextColor="White"/>
-
                 <!--Forgot password hyperlink-->
                 <Label Text ="Forgot password?"
-            TextDecorations="Underline">
+                        TextDecorations="Underline">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GoSony}"/>
                     </Label.GestureRecognizers>

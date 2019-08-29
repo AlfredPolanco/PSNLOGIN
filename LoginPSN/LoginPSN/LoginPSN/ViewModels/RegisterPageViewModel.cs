@@ -13,9 +13,14 @@ namespace LoginPSN.ViewModels
 {
     public class RegisterPageViewModel : INotifyPropertyChanged
     {
+        
+
+
+        //Helper para validar el correo electronico
         Validation validate = new Validation();
         public string DisplayError { get; set; }
         public User User { get; set; } = new User();
+        //Comando de registro
         public ICommand RegisterCommand { get; set; }
         public RegisterPageViewModel()
         {
@@ -24,7 +29,7 @@ namespace LoginPSN.ViewModels
                 var x = User.Name;
                 var y = User.Email;
                 var z = User.Password;
-
+                //Si email and password estan vacios mensaje de error
                 if (string.IsNullOrEmpty(User.Email) || string.IsNullOrEmpty(User.Password))
                 {
                     //Result = Application.Current.Properties["Resul"].ToString();
@@ -36,7 +41,7 @@ namespace LoginPSN.ViewModels
                     await App.Current.MainPage.Navigation.PushAsync(new HomePage());
 
                 }
-                //Usuario es bienvido al presionar el boton de LogIn 
+                //Usuario es bienvenido a pagina de home luego de haber registrado
                 else
                 {
                     await App.Current.MainPage.Navigation.PushAsync(new HomePage());
@@ -46,5 +51,9 @@ namespace LoginPSN.ViewModels
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

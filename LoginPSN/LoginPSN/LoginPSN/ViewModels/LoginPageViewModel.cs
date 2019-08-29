@@ -13,8 +13,16 @@ namespace LoginPSN.ViewModels
 {
     public class LoginPageViewModel : INotifyPropertyChanged
     {
+
+        //private string displayError;
+
+        //public string DisplayError
+        //{
+        //    get { return string.Format("HOLA", User.Name); }
+        //}
+
+        //Helper para validar correo electronico
         Validation validate = new Validation();
-        public string DisplayError { get; set; }
         public User User { get; set; } = new User();
         public ICommand LoginCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
@@ -28,9 +36,8 @@ namespace LoginPSN.ViewModels
                 //Valida que el email y password no esten vacios
                 if (string.IsNullOrEmpty(User.Email) || string.IsNullOrEmpty(User.Password))
                 {
-                    //var z = 10;
                     //Result = Application.Current.Properties["Resul"].ToString();
-                    await Application.Current.MainPage.DisplayAlert("Alert", "Please enter email address and password", "Ok");
+                    //await Application.Current.MainPage.DisplayAlert("Alert", "Please enter email address and password", "Ok");
                 }
                 //Valida que el email introducido es valido
                 else if (validate.ValidateEmail(x))
@@ -43,8 +50,6 @@ namespace LoginPSN.ViewModels
                 else
                 {
                     //Mensaje de invalid credenctials
-                    //var k = 12;
-                    
                 }
             });
 
@@ -54,18 +59,24 @@ namespace LoginPSN.ViewModels
 
             });
 
-            GoSony = new Command(async () =>
+            GoSony = new Command(() =>
             {
 
-                //await Device.OpenUri(new Uri("https://id.sonyentertainmentnetwork.com/id/reset_password/?request_locale=en_US#/reset_password/change?entry=%2Freset_password"));
+               Device.OpenUri(new Uri("https://id.sonyentertainmentnetwork.com/id/reset_password/?request_locale=en_US#/reset_password/change?entry=%2Freset_password"));
 
             });
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string DisplayError)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(DisplayError));
-        }
+        //private void RaisePropertyChanged(string propertyName)
+        //{
+        //    var handle = PropertyChanged;
+        //    if (handle != null)
+        //        handle(this, new PropertyChangedEventArgs(propertyName));
+        //}
+        //protected void OnPropertyChanged(string DisplayError)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(DisplayError));
+        //}
     }
 }

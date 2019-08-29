@@ -8,7 +8,7 @@
              BackgroundColor="Blue"
              NavigationPage.HasNavigationBar="False">
   <!--Pages can be added as references or inline-->
-  <ContentPage Title="Home" />
-  <ContentPage Title="Option 1" />
-  <ContentPage Title="Option 2" />
+    <ContentPage Title="Home" IconImageSource="ic_action_home.png"/>
+    <ContentPage Title="Profile" IconImageSource="ic_action_account_circle.png"/>
+    <ContentPage Title="Awards" IconImageSource="ic_action_star.png"/>
 </TabbedPage>

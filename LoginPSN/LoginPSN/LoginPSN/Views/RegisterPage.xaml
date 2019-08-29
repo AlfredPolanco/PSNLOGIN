@@ -12,26 +12,16 @@
         <ViewModels:RegisterPageViewModel/>
     </ContentPage.BindingContext>-->
     <ScrollView>
-        <StackLayout Padding="20,100,20,0">
-
-            <!--PSN Image-->
-            <!--<Image Source="PSN.jpg" />
-                <Label Text="Acess PlayStation Network"
-                TextColor="White"
-                FontSize="Medium"
-                HorizontalOptions="FillAndExpand"
-                />-->
+        <StackLayout HorizontalOptions="Center"
+                     VerticalOptions="Center">
+             
+            <Image Source="PSN.jpg" />
             <!--App Name title-->
-            <Label Text="PlayStation Network App"
-               x:Name="myAppTittle"
-               TextColor="White"
-               FontSize="Large"
-               HorizontalOptions="Center"/>
-
-            <!--Get email-->
+            <Label Text="PlayStation Network App"/>
+            <!--Get Name-->
             <Entry Text="{Binding User.Name}"
                        Placeholder="Name"/>
-            
+            <!--Get email-->
             <Entry Text="{Binding User.Email}"
                    Keyboard="Email"
                        Placeholder="Email"/>
@@ -39,21 +29,16 @@
             <Entry Text="{Binding User.Password}"
                    IsPassword="True"
                        Placeholder="Password"/>
+            <!--Confirm password-->
             <Entry Text="{Binding User.Password}"
                    IsPassword="True"
                        Placeholder="Confirm password"/>
+            <!--Boton de registrar-->
             <Button Text="Register"
                         Command="{Binding RegisterCommand}"/>
-            <Label Text="{Binding Result, Mode=TwoWay}"
-                       TextColor="White"/>
-
-            <!--Forgot password hyperlink-->
-            <!--<Label Text ="Forgot password?"
-            TextDecorations="Underline">
-                <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="GoSony"/>
-                    </Label.GestureRecognizers>
-            </Label>-->
+            <!--Mensajes de error-->
+            <Label Text="{Binding DisplayError, Mode=TwoWay}"
+                   TextColor="Red"/>
         </StackLayout>
     </ScrollView>
 
