@@ -31,15 +31,15 @@ namespace LoginPSN.ViewModels
                 {
                     DisplayError = "Please complete all the fields to register";
                 }
-                //Valida que el email introducido es valido
-                else if (StringValidationHelper.ValidateEmail(y))
-                {
-                    await App.Current.MainPage.Navigation.PushAsync(new HomePage());
-                }
                 //Valida que las contrasenas sean la misma 
                 else if (StringValidationHelper.ValidatePassword(z,w))
                 {
                     DisplayError = "Please check your password, they are not matching!";
+                }
+                //Valida que el email introducido es valido
+                else if (StringValidationHelper.ValidateEmail(y))
+                {
+                    await App.Current.MainPage.Navigation.PushAsync(new HomePage());
                 }
                 //Mensaje de error si la informacion no es valida
                 else

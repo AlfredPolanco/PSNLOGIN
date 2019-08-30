@@ -10,19 +10,19 @@ namespace LoginPSN.Helpers
 {
     public static class StringValidationHelper
     {
-        //Valida que ambas contrasenas sean similares, de no serlo retorna falso
-        public static bool ValidatePassword(string passw1, string passw2)
+        //Valida que los campos no esten vacios
+        public static bool ValidateField(string x, string y, string z, string w)
         {
-            if(passw1 == passw2)
+            if (string.IsNullOrEmpty(x) || string.IsNullOrEmpty(y) || string.IsNullOrEmpty(z) || string.IsNullOrEmpty(w))
             {
                 return true;
             }
             return false;
         }
-        //Valida que los campos no esten vacios
-        public static bool ValidateField(string x, string y, string z, string w)
+        //Valida que ambas contrasenas sean similares, de no serlo retorna falso
+        public static bool ValidatePassword(string passw1, string passw2)
         {
-            if (string.IsNullOrEmpty(x) || string.IsNullOrEmpty(y) || string.IsNullOrEmpty(z) || string.IsNullOrEmpty(w))
+            if (passw1 != passw2)
             {
                 return true;
             }
