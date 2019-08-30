@@ -2,7 +2,7 @@
  Xamarin app psn login
 
 <p align="center">
-<img  width="400" src="Screenshot_20190829-202335.png"/>
+<img  width="200" src="Screenshot_20190829-202335.png"/>
 </p>
 <p align="center">
 <img  width="400" src="Screenshot_20190829-202343.png"/>
