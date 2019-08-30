@@ -7,10 +7,6 @@
              x:Class="LoginPSN.Views.RegisterPage"
              BackgroundColor="Blue"
              NavigationPage.HasNavigationBar="False">
-
-    <!--<ContentPage.BindingContext>
-        <ViewModels:RegisterPageViewModel/>
-    </ContentPage.BindingContext>-->
     <ScrollView>
         <StackLayout>
 
@@ -29,7 +25,7 @@
                    IsPassword="True"
                        Placeholder="Password"/>
             <!--Confirm password-->
-            <Entry Text="{Binding User.Password}"
+            <Entry Text="{Binding User.ConfirmPassword}"
                    IsPassword="True"
                        Placeholder="Confirm password"/>
             <Label Text="{Binding DisplayError, Mode=TwoWay}"

@@ -9,17 +9,12 @@
              BackgroundColor="Blue"
              NavigationPage.HasNavigationBar="False">
     
-	<ContentPage.BindingContext>
-		<ViewModels:LoginPageViewModel/>
-	</ContentPage.BindingContext>
-        <ScrollView>
-            <StackLayout>
-
-                <!--PSN Image-->
+    <ScrollView>
+        <StackLayout>
+            <!--PSN Image-->
                 <Image Source="PSN.jpg" />
                 <!--App Name title-->
                 <Label Text="PlayStation Network App"/>
-
                 <!--Get email-->
                 <Entry Text="{Binding User.Email}"
                        Keyboard="Email"
@@ -35,7 +30,6 @@
                 <Label Text="{Binding DisplayError, Mode=TwoWay}"
                        HorizontalOptions="CenterAndExpand"
                        TextColor="Red"/>
-                
                 <!--Boton de Register-->
                 <Button Text="Register"
                             Command="{Binding RegisterCommand}"/>

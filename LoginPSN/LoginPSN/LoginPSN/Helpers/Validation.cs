@@ -10,6 +10,25 @@ namespace LoginPSN.Helpers
 {
     public static class StringValidationHelper
     {
+        //Valida que ambas contrasenas sean similares, de no serlo retorna falso
+        public static bool ValidatePassword(string passw1, string passw2)
+        {
+            if(passw1 == passw2)
+            {
+                return true;
+            }
+            return false;
+        }
+        //Valida que los campos no esten vacios
+        public static bool ValidateField(string x, string y, string z, string w)
+        {
+            if (string.IsNullOrEmpty(x) || string.IsNullOrEmpty(y) || string.IsNullOrEmpty(z) || string.IsNullOrEmpty(w))
+            {
+                return true;
+            }
+            return false;
+        }
+        //Valida que el correo sea valido
         public static bool ValidateEmail(string e)
         {
             //Patron del email

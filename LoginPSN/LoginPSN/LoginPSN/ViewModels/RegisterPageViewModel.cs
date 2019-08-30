@@ -25,8 +25,9 @@ namespace LoginPSN.ViewModels
                 var x = User.Name;
                 var y = User.Email;
                 var z = User.Password;
-                //Si email and password estan vacios mensaje de error
-                if (string.IsNullOrEmpty(User.Name) || string.IsNullOrEmpty(User.Email) || string.IsNullOrEmpty(User.Password))
+                var w = User.ConfirmPassword;
+                //Validacion de que campos no estan vacios
+                if (StringValidationHelper.ValidateField(x, y, z, w))
                 {
                     DisplayError = "Please complete all the fields to register";
                 }
@@ -35,13 +36,17 @@ namespace LoginPSN.ViewModels
                 {
                     await App.Current.MainPage.Navigation.PushAsync(new HomePage());
                 }
-                //Usuario es bienvenido a pagina de home luego de haber registrado
+                //Valida que las contrasenas sean la misma 
+                else if (StringValidationHelper.ValidatePassword(z,w))
+                {
+                    DisplayError = "Please check your password, they are not matching!";
+                }
+                //Mensaje de error si la informacion no es valida
                 else
                 {
                     DisplayError = "Please enter valid information";
                 }
             });
-
         }
         public event PropertyChangedEventHandler PropertyChanged;
     }
